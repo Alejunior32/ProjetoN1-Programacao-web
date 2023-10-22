@@ -33,6 +33,12 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String senha;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="usuario_etiqueta",
+            joinColumns={@JoinColumn(name="usuario_id")},
+            inverseJoinColumns={@JoinColumn(name="etiqueta_id")})
+    private List<Etiqueta> etiquetas;
+
     @OneToOne
     private Perfil perfil;
 
@@ -43,7 +49,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getPassword() {
-        return getPassword();
+        return getSenha();
     }
 
     @Override
