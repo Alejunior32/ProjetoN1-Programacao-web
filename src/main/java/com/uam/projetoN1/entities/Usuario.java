@@ -39,6 +39,9 @@ public class Usuario implements UserDetails {
             inverseJoinColumns={@JoinColumn(name="etiqueta_id")})
     private List<Etiqueta> etiquetas;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Historico> historicos;
+
     @OneToOne
     private Perfil perfil;
 
