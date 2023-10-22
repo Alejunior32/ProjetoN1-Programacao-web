@@ -1,4 +1,4 @@
-package com.uam.projetoN1.config.security;
+package com.uam.projetoN1.services;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

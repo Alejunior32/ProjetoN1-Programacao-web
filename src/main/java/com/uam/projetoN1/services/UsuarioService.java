@@ -1,6 +1,9 @@
 package com.uam.projetoN1.services;
 
+import com.uam.projetoN1.entities.Etiqueta;
 import com.uam.projetoN1.entities.Usuario;
+import com.uam.projetoN1.exceptions.AdminNaoPodeTerEtiquetaException;
+import com.uam.projetoN1.exceptions.EtiquetaJaExisteException;
 import com.uam.projetoN1.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +26,11 @@ public class UsuarioService implements UserDetailsService {
         return op_usuario.orElseThrow(() -> new EntityNotFoundException("Não encontrado")  );
     }
 
+    public Usuario buscarUsuarioPeloPerfil(Long id){
+        Optional<Usuario> op_usuario = usuarioRepository.findByIdAndPerfil_nome(id,"USUARIO");
+        return op_usuario.orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado") );
+    }
+
     public Usuario buscarUsuarioPorEmail(String email){
         Optional<Usuario> op_usuario= usuarioRepository.findByEmail(email);
         return op_usuario.orElseThrow(() -> new EntityNotFoundException("Usuario não encontrado"));
@@ -30,5 +39,29 @@ public class UsuarioService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return buscarUsuarioPorEmail(username);
+    }
+
+    public Usuario atualizarUsuario(Usuario usuario,Long id){
+        Usuario usuarioInicial = this.buscarUsuarioPeloID(id);
+        usuario.setId(usuarioInicial.getId());
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario salvarEtiqueta(Long id, Etiqueta etiqueta){
+
+        Usuario usuario = buscarUsuarioPeloID(id);
+        List<Etiqueta> etiquetas = usuario.getEtiquetas();
+
+        if(usuario.getPerfil().getNome().equals("USUARIO")){
+            if (etiquetas.contains(etiqueta)){
+                throw new EtiquetaJaExisteException("Etiqueta já existe para esse usuário");
+            }else{
+                etiquetas.add(etiqueta);
+                return atualizarUsuario(usuario,id);
+            }
+        }
+
+        throw new AdminNaoPodeTerEtiquetaException("Não é possivel adicionar Etiqueta para Admin");
+
     }
 }

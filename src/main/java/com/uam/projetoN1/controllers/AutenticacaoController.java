@@ -1,6 +1,6 @@
 package com.uam.projetoN1.controllers;
 
-import com.uam.projetoN1.config.security.AutenticacaoService;
+import com.uam.projetoN1.services.AutenticacaoService;
 import com.uam.projetoN1.dto.Autenticacao.AutenticacaoDTO;
 import com.uam.projetoN1.dto.Autenticacao.TokenDTO;
 import org.springframework.beans.factory.annotation.Autowired;

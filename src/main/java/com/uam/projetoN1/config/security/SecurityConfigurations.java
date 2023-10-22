@@ -1,5 +1,6 @@
 package com.uam.projetoN1.config.security;
 
+import com.uam.projetoN1.services.AutenticacaoService;
 import com.uam.projetoN1.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

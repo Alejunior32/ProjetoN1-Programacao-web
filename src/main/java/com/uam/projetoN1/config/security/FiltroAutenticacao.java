@@ -1,10 +1,10 @@
 package com.uam.projetoN1.config.security;
 
 import com.uam.projetoN1.entities.Usuario;
+import com.uam.projetoN1.services.AutenticacaoService;
 import com.uam.projetoN1.services.UsuarioService;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
