@@ -1,7 +1,7 @@
 package com.uam.projetoN1.dto.Etiqueta;
 
-import com.gft.Desafio_noticias_rapidas.dto.Usuario.UsuarioMapper;
-import com.gft.Desafio_noticias_rapidas.entities.Etiqueta;
+import com.uam.projetoN1.dto.Usuario.UsuarioMapper;
+import com.uam.projetoN1.entities.Etiqueta;
 
 import java.util.stream.Collectors;
 

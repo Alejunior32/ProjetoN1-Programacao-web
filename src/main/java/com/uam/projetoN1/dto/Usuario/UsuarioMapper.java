@@ -1,8 +1,9 @@
 package com.uam.projetoN1.dto.Usuario;
 
-import com.gft.Desafio_noticias_rapidas.dto.Etiqueta.EtiquetaMapper;
-import com.gft.Desafio_noticias_rapidas.entities.Perfil;
-import com.gft.Desafio_noticias_rapidas.entities.Usuario;
+import com.uam.projetoN1.dto.Etiqueta.EtiquetaMapper;
+import com.uam.projetoN1.entities.Perfil;
+import com.uam.projetoN1.entities.Usuario;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.stream.Collectors;
 
@@ -11,7 +12,7 @@ public class UsuarioMapper {
     public static Usuario fromDTO(RegistroUsuarioDTO dto){
         Perfil perfil = new Perfil();
         perfil.setId(2L);
-        return new Usuario(null, dto.getEmail(), dto.getSenha(),null,perfil);
+        return new Usuario(null, dto.getEmail(), new BCryptPasswordEncoder().encode(dto.getSenha()),null,perfil);
     }
 
     public static ConsultaUsuarioDTO fromEtityToConsultaDTO(Usuario usuario){

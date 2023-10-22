@@ -1,6 +1,6 @@
 package com.uam.projetoN1.dto.Usuario;
 
-import com.gft.Desafio_noticias_rapidas.dto.Etiqueta.ConsultaEtiquetaSemUsuariosDTO;
+import com.uam.projetoN1.dto.Etiqueta.ConsultaEtiquetaSemUsuariosDTO;
 
 import java.util.List;
 

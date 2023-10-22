@@ -1,6 +1,6 @@
 package com.uam.projetoN1.dto.Historico;
 
-import com.gft.Desafio_noticias_rapidas.entities.Historico;
+import com.uam.projetoN1.entities.Historico;
 
 public class HistoricoMapper {
 

@@ -1,16 +1,14 @@
 package com.uam.projetoN1.entities;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -44,6 +42,14 @@ public class Usuario implements UserDetails {
 
     @OneToOne
     private Perfil perfil;
+
+    public Usuario(Long id, String email, String senha, List<Etiqueta> etiquetas, Perfil perfil) {
+        this.id = id;
+        this.email = email;
+        this.senha = passwordEncoder().encode(senha);
+        this.etiquetas = etiquetas;
+        this.perfil = perfil;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
