@@ -6,6 +6,8 @@ import com.uam.projetoN1.exceptions.AdminNaoPodeTerEtiquetaException;
 import com.uam.projetoN1.exceptions.EtiquetaJaExisteException;
 import com.uam.projetoN1.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,6 +36,15 @@ public class UsuarioService implements UserDetailsService {
     public Usuario buscarUsuarioPorEmail(String email){
         Optional<Usuario> op_usuario= usuarioRepository.findByEmail(email);
         return op_usuario.orElseThrow(() -> new EntityNotFoundException("Usuario não encontrado"));
+    }
+
+    public Page<Usuario> buscarTodosUsuarios(Pageable pageable){
+        return usuarioRepository.findAllByPerfil_nome(pageable,"USUARIO");
+    }
+
+    public void deletarUsuario(Long id) {
+        Usuario usuario = this.buscarUsuarioPeloID(id);
+        usuarioRepository.delete(usuario);
     }
 
     @Override
