@@ -4,6 +4,7 @@ import com.uam.projetoN1.entities.Etiqueta;
 import com.uam.projetoN1.entities.Usuario;
 import com.uam.projetoN1.exceptions.AdminNaoPodeTerEtiquetaException;
 import com.uam.projetoN1.exceptions.EtiquetaJaExisteException;
+import com.uam.projetoN1.exceptions.UsuarioComEmailJaExisteException;
 import com.uam.projetoN1.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,9 +24,21 @@ public class UsuarioService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
 
+    public Usuario salvarUsuario(Usuario usuario){
+        if (!usuarioRepository.existsByEmail(usuario.getEmail())){
+            return usuarioRepository.save(usuario);
+        }
+        throw new UsuarioComEmailJaExisteException("Já Existe um usuário com esse email");
+    }
+
     public Usuario buscarUsuarioPeloID(Long id){
         Optional<Usuario> op_usuario = usuarioRepository.findById(id);
         return op_usuario.orElseThrow(() -> new EntityNotFoundException("Não encontrado")  );
+    }
+
+    public Usuario buscarAdminPeloPerfil(Long id) {
+        Optional<Usuario>  op_admin = usuarioRepository.findByIdAndPerfil_nome(id,"ADMIN");
+        return op_admin.orElseThrow(() -> new EntityNotFoundException("Administrador não encontrado"));
     }
 
     public Usuario buscarUsuarioPeloPerfil(Long id){
@@ -40,6 +53,10 @@ public class UsuarioService implements UserDetailsService {
 
     public Page<Usuario> buscarTodosUsuarios(Pageable pageable){
         return usuarioRepository.findAllByPerfil_nome(pageable,"USUARIO");
+    }
+
+    public Page<Usuario> buscarTodosAdmins(Pageable pageable) {
+        return usuarioRepository.findAllByPerfil_nome(pageable,"ADMIN");
     }
 
     public void deletarUsuario(Long id) {

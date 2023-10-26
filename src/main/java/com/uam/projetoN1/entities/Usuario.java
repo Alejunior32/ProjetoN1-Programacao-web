@@ -14,6 +14,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -48,6 +49,13 @@ public class Usuario implements UserDetails {
         this.email = email;
         this.senha = passwordEncoder().encode(senha);
         this.etiquetas = etiquetas;
+        this.perfil = perfil;
+    }
+
+    public Usuario(Long id, String email, String senha, Perfil perfil) {
+        this.id = id;
+        this.email = email;
+        this.senha = senha;
         this.perfil = perfil;
     }
 
