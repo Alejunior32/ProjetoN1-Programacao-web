@@ -16,7 +16,7 @@ import java.util.List;
 public class ApiErroDTO {
 
     private String message;
-    private List<String> errors;
+    private String errors;
     private HttpStatus status;
 
 }
