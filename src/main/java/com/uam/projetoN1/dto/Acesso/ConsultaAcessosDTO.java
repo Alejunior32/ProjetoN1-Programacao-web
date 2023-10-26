@@ -1,18 +1,18 @@
-package com.uam.projetoN1.dto.Historico;
+package com.uam.projetoN1.dto.Acesso;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-public class ConsultaHistoricoDTO {
+@NoArgsConstructor
+public class ConsultaAcessosDTO {
 
     private String etiqueta;
 
-    private String data;
+    private Integer acessos;
 
 }

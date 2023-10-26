@@ -1,21 +1,16 @@
 package com.uam.projetoN1.dto.Autenticacao;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TokenDTO {
 
     private String token;
 
-    public TokenDTO() {
-    }
-
-    public TokenDTO(String token) {
-        this.token = token;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 }

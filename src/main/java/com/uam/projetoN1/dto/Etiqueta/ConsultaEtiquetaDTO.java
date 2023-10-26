@@ -1,9 +1,17 @@
 package com.uam.projetoN1.dto.Etiqueta;
 
 import com.uam.projetoN1.dto.Usuario.ConsultaUsuarioSemEtiquetasDTO;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ConsultaEtiquetaDTO {
 
     private Long id;
@@ -12,36 +20,4 @@ public class ConsultaEtiquetaDTO {
 
     private List<ConsultaUsuarioSemEtiquetasDTO> usuarios;
 
-    public ConsultaEtiquetaDTO() {
-    }
-
-    public ConsultaEtiquetaDTO(Long id, String nomeEtiqueta, List<ConsultaUsuarioSemEtiquetasDTO> usuarios) {
-        this.id = id;
-        this.nomeEtiqueta = nomeEtiqueta;
-        this.usuarios = usuarios;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNomeEtiqueta() {
-        return nomeEtiqueta;
-    }
-
-    public void setNomeEtiqueta(String nomeEtiqueta) {
-        this.nomeEtiqueta = nomeEtiqueta;
-    }
-
-    public List<ConsultaUsuarioSemEtiquetasDTO> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<ConsultaUsuarioSemEtiquetasDTO> usuarios) {
-        this.usuarios = usuarios;
-    }
 }

@@ -1,21 +1,16 @@
 package com.uam.projetoN1.dto.Etiqueta;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegistroEtiquetaDTO {
 
     private String nomeEtiqueta;
 
-    public RegistroEtiquetaDTO(String nomeEtiqueta) {
-        this.nomeEtiqueta = nomeEtiqueta;
-    }
-
-    public RegistroEtiquetaDTO() {
-    }
-
-    public String getNomeEtiqueta() {
-        return nomeEtiqueta;
-    }
-
-    public void setNomeEtiqueta(String nomeEtiqueta) {
-        this.nomeEtiqueta = nomeEtiqueta;
-    }
-}
+   }
