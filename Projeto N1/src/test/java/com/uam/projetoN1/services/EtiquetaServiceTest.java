@@ -29,7 +29,7 @@ public class EtiquetaServiceTest {
     public static final long ID = 1L;
     public static final String NOME_ETIQUETA = "corinthians";
     public static final int INDEX = 0;
-    public static final String EMAIL = "gft@gft.com";
+    public static final String EMAIL = "test@email.com";
     public static final String SENHA = "1234";
     @Mock
     private EtiquetaRepository etiquetaRepository;
@@ -140,6 +140,10 @@ public class EtiquetaServiceTest {
     }
 
     @Test
+    void buscarEtiquetaDoUsuario() {
+    }
+
+    @Test
     public void deveSalvarEtiquetaERetornarSucesso(){
         when(etiquetaRepository.save(any())).thenReturn(etiqueta);
         Etiqueta resposta = etiquetaService.salvarEtiqueta(etiqueta);
@@ -217,4 +221,6 @@ public class EtiquetaServiceTest {
             }
         };
     }
+
+
 }

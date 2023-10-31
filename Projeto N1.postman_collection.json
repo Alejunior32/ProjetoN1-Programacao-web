@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "b21c7334-daaf-490a-8d20-a8dc1966c624",
+		"name": "Projeto N1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24169768",
+		"_collection_link": "https://bold-moon-52769.postman.co/workspace/New-Team-Workspace~e06ea035-c80a-4cb4-95f5-d0ec8984aa93/collection/24169768-b21c7334-daaf-490a-8d20-a8dc1966c624?action=share&source=collection_link&creator=24169768"
+	},
+	"item": [
+		{
+			"name": "User's request",
+			"item": [
+				{
+					"name": "Etiqueta",
+					"item": [
+						{
+							"name": "Cadastrar etiqueta para o Usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTgzMzI0MTF9.ZfDHMRsckV2csxkFLVyVenfnDOrVKWXsS22Rk_lSqlU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nomeEtiqueta\":\"silvicultura\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/etiquetas/usuario",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"etiquetas",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar todas as etiquetas do usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTgzMzI0MTF9.ZfDHMRsckV2csxkFLVyVenfnDOrVKWXsS22Rk_lSqlU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/etiquetas/usuario",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"etiquetas",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Noticia",
+					"item": [
+						{
+							"name": "Buscar noticias com uma data  específica",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTgzMzI0MTF9.ZfDHMRsckV2csxkFLVyVenfnDOrVKWXsS22Rk_lSqlU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/noticias/usuario/com-data/?data=10-11-2022&etiquetaId=9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"noticias",
+										"usuario",
+										"com-data",
+										""
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "10-11-2022"
+										},
+										{
+											"key": "etiquetaId",
+											"value": "9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar noticia com data Atual",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTc5OTA1OTN9.k1wgVOcZp22R0Ff4frp0eBnJIpbH-YmyR5otusLL1JM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/noticias/usuario/data-atual/?etiquetaId=6",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"noticias",
+										"usuario",
+										"data-atual",
+										""
+									],
+									"query": [
+										{
+											"key": "etiquetaId",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar todas as  noticias do usuario com data especifica",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTc5OTA1OTN9.k1wgVOcZp22R0Ff4frp0eBnJIpbH-YmyR5otusLL1JM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/noticias/usuario/todas-as-noticias-do-usuario/com-data/?data=10-11-2022",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"noticias",
+										"usuario",
+										"todas-as-noticias-do-usuario",
+										"com-data",
+										""
+									],
+									"query": [
+										{
+											"key": "data",
+											"value": "10-11-2022"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar todas as noticias da data Atual",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTc5OTA1OTN9.k1wgVOcZp22R0Ff4frp0eBnJIpbH-YmyR5otusLL1JM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/noticias/usuario/todas-as-noticias-do-usuario/data-atual/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"noticias",
+										"usuario",
+										"todas-as-noticias-do-usuario",
+										"data-atual",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Historico",
+					"item": [
+						{
+							"name": "Buscar o historio do usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTgzMzI0MTF9.ZfDHMRsckV2csxkFLVyVenfnDOrVKWXsS22Rk_lSqlU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/historicos/usuario",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"historicos",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin's requests",
+			"item": [
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "Cadastrar Usuário",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTg3NjY0OTl9.O_xpO4Qi8D1EmDjIWRGKuF9BWzyfKn_HFHaaBduLljA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"aleroperojunior@gmail.com\",\r\n    \"senha\":\"1234\",\r\n    \"etiquetas\":[\r\n           \r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/usuarios",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Usuario",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiUHJvZ3JhbWFTdGFydGVyIiwiZXhwIjoxNjY5MTE3OTI0fQ.xkBZ4OvJ8N-hE70m3mWbI-MyPW1U2BoEv_EJiHY8ggE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/usuarios/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Todos os Usuarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/usuarios",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar Usuario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/usuarios/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Usuario",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/usuarios/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Buscar todos os Admins",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTg3NjU2NDV9.iohGsz-aZMfdZS3OBbPQm625uT0oPlqZIzwiwI7c8SQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/admins",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar um admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaXNzIjoiUHJvZ3JhbWFTdGFydGVyIiwiZXhwIjoxNjY5MDUyOTk3fQ.i_QTdHyRyC41KmNg1lUgiY4Yam1RODogWMPqF5if-xY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/admins/7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"admins",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastrar Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiUHJvZ3JhbWFTdGFydGVyIiwiZXhwIjoxNjY5MDQ4NzA1fQ.t3MBokTfxZIvvZUduwRNzBz6lEJQv0ItGVRVR6_dbcg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"alejunior1@gft.com\",\r\n    \"senha\":\"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/admins",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar cadastro admin",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ale1@gft.com\",\r\n    \"senha\":\"$10$Kfo1aTS5pZxHU4zFOuVYsO7fSAqv5wkaySyLj3hm9h6npfluplIve\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/admins/7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"admins",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Admin",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/admins/7",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"admins",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Etiquetas",
+					"item": [
+						{
+							"name": "Buscar todas as etiquetas e quais usuarios possuem",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/etiquetas/admin",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"etiquetas",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar etiqueta com os usuarios que à possuem",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/etiquetas/admin/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"etiquetas",
+										"admin",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Etiquetas mais acessadas",
+					"item": [
+						{
+							"name": "Historico das etiquetas mais acessadas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiRGVzZW52b2x2aW1lbnRvRGVTb2Z0d2FyZVBhcmFXZWIiLCJleHAiOjE2OTgzMzI2OTR9.C5nosKJsZVXYVf-KzsM4FniXoxRrbJ6wRaK49zSVkw0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/historicos/admin/dez-maiores-acessados",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"historicos",
+										"admin",
+										"dez-maiores-acessados"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Email",
+					"item": [
+						{
+							"name": "Enviar email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiUHJvZ3JhbWFTdGFydGVyIiwiZXhwIjoxNjY5MTI1Nzc0fQ.EA6H0vMt0nNMON_899W-ms-XhbR8BO1DaWNuiHChT6k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/mail/enviar?usuarioId=15",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"mail",
+										"enviar"
+									],
+									"query": [
+										{
+											"key": "usuarioId",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user@email.com\",\r\n    \"senha\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

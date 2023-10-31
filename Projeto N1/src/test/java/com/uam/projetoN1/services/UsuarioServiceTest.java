@@ -28,7 +28,7 @@ public class UsuarioServiceTest {
 
     public static final long ID = 1L;
     public static final String NOME_ETIQUETA = "sp";
-    public static final String EMAIL = "gft@gft.com";
+    public static final String EMAIL = "test@email.com";
     public static final String SENHA = "1234";
     public static final int INDEX = 0;
     @InjectMocks

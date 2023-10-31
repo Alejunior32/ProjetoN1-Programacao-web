@@ -79,6 +79,10 @@ public class HistoricoServiceTest {
         assertAcesso(resposta);
     }
 
+    @Test
+    void historicoEtiquetaMaisAcessado() {
+    }
+
     private void assertAcesso(Acesso resposta) {
         assertEquals(ID,resposta.getId());
         assertEquals(1,resposta.getAcessos());
@@ -111,5 +115,4 @@ public class HistoricoServiceTest {
         acesso = new Acesso(ID,usuario,etiqueta,0);
         op_acesso = Optional.of(acesso);
     }
-
 }

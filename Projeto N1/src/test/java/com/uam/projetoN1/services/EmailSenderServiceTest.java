@@ -15,7 +15,7 @@ import static org.mockito.MockitoAnnotations.openMocks;
 
 public class EmailSenderServiceTest {
 
-    public static final String EMAIL = "gft@gft.com";
+    public static final String EMAIL = "test@email.com";
     public static final String SUBJECT = "esse é o subject";
     public static final String BODY = "esse é o body";
     @Mock
