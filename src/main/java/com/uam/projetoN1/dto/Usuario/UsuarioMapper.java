@@ -12,7 +12,7 @@ public class UsuarioMapper {
     public static Usuario fromDTO(RegistroUsuarioDTO dto){
         Perfil perfil = new Perfil();
         perfil.setId(2L);
-        return new Usuario(null, dto.getEmail(), new BCryptPasswordEncoder().encode(dto.getSenha()),null,perfil);
+        return new Usuario(null, dto.getEmail(), dto.getSenha(),null,perfil);
     }
 
     public static ConsultaUsuarioDTO fromEtityToConsultaDTO(Usuario usuario){

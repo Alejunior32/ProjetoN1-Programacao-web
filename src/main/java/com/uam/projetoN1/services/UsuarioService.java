@@ -3,6 +3,7 @@ package com.uam.projetoN1.services;
 import com.uam.projetoN1.entities.Etiqueta;
 import com.uam.projetoN1.entities.Usuario;
 import com.uam.projetoN1.exceptions.AdminNaoPodeTerEtiquetaException;
+import com.uam.projetoN1.exceptions.EntityNotFoundException;
 import com.uam.projetoN1.exceptions.EtiquetaJaExisteException;
 import com.uam.projetoN1.exceptions.UsuarioComEmailJaExisteException;
 import com.uam.projetoN1.repositories.UsuarioRepository;
@@ -14,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
+
 import java.util.List;
 import java.util.Optional;
 

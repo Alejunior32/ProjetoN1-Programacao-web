@@ -6,6 +6,7 @@ import com.uam.projetoN1.dto.Usuario.ConsultaUsuarioSemEtiquetasDTO;
 import com.uam.projetoN1.dto.Usuario.RegistroUsuarioDTO;
 import com.uam.projetoN1.dto.Usuario.UsuarioMapper;
 import com.uam.projetoN1.entities.Usuario;
+import com.uam.projetoN1.services.EmailSenderService;
 import com.uam.projetoN1.services.EtiquetaService;
 import com.uam.projetoN1.services.UsuarioService;
 import org.springframework.data.domain.Page;
@@ -23,10 +24,20 @@ public class UsuarioController {
 
     private final EtiquetaService etiquetaService;
 
+    private final EmailSenderService emailSenderService;
 
-    public UsuarioController(UsuarioService usuarioService, EtiquetaService etiquetaService) {
+    public UsuarioController(UsuarioService usuarioService, EtiquetaService etiquetaService,EmailSenderService emailSenderService) {
         this.usuarioService = usuarioService;
         this.etiquetaService = etiquetaService;
+        this.emailSenderService = emailSenderService;
+    }
+
+    @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<ConsultaUsuarioSemEtiquetasDTO> salvarUsuario(@RequestBody RegistroUsuarioDTO usuarioDTO){
+        Usuario usuario = usuarioService.salvarUsuario(UsuarioMapper.fromDTO(usuarioDTO));
+        emailSenderService.EnviarEmail(usuario.getEmail(), "Usuário Cadastrado com sucesso!","Seja muito bem vindo em nossa API de notícias");
+        return ResponseEntity.ok(UsuarioMapper.fromEntityToConsultaSemEtiquetaDTO(usuario));
     }
 
     @GetMapping("{id}")
