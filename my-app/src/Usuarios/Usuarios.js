@@ -50,6 +50,22 @@ const Usuarios = ({ token }) => {
     }
   };
 
+  const handleEnviarEmail = async (userId) => {
+    try {
+      await fetch(`http://localhost:8080/v1/mail/enviar?usuarioId=${userId}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Email enviado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+    }
+  };
+
   return (
     <div className="etiquetas-container">
       <div className="quadrado">
@@ -62,6 +78,7 @@ const Usuarios = ({ token }) => {
             <tr>
               <th>ID</th>
               <th>Email</th>
+              <th>Notícias do Dia</th>
               <th>Detalhes</th>
               <th>Editar</th>
               <th>Deletar</th>
@@ -72,6 +89,13 @@ const Usuarios = ({ token }) => {
               <tr key={user.id} className="etiqueta-item">
                 <td>{user.id}</td>
                 <td>{user.email}</td>
+                <td>
+          <button
+            className='btn btn-info'
+            onClick={() => handleEnviarEmail(user.id)}>
+            Enviar Email
+          </button>
+        </td>
                 <td><Link to={`/admin/usuarios/detalhes/${user.id}`} className='btn btn-primary'>Detalhes</Link></td>
                 <td><Link to={`/admin/usuarios/editar/${user.id}`} className='btn btn-warning'>Editar</Link></td>
                 <td>
