@@ -89,6 +89,9 @@ const EtiquetasPage = ({ token }) => {
             ))}
           </tbody>
         </table>
+        <div className="etiquetas-date-search">
+        <Link to={`/admin/usuarios`} className='btn btn-danger'>ADMIN</Link>
+        </div>
       </div>
     </div>
   );
