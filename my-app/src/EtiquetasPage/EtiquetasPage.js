@@ -6,8 +6,14 @@ const EtiquetasPage = ({ token }) => {
   const [etiquetas, setEtiquetas] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
 
+  
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
+  };
+
+  const formatarDataParaURL = (data) => {
+    const [ano, mes, dia] = data.split('-');
+    return `${dia}-${mes}-${ano}`;
   };
 
   useEffect(() => {
@@ -49,7 +55,14 @@ const EtiquetasPage = ({ token }) => {
             onChange={handleDateChange}
             className="form-control"
           />
-          <Link to={`/noticias/dia/${selectedDate}`} className="btn btn-info">Notícias da Data</Link>
+            <Link to={`/noticias/data/${formatarDataParaURL(selectedDate)}`} className="btn btn-success">
+              Notícias da Data Selecionada
+            </Link>
+            <div className="etiquetas-date-search">
+            <Link to={`/etiquetas/historico`} className='btn btn-dark'>
+              Histórico de Etiquetas
+            </Link>
+            </div>
         </div>
         </div>
         <table className="etiquetas-table">
@@ -58,6 +71,7 @@ const EtiquetasPage = ({ token }) => {
               <th>ID</th>
               <th>Nome da Etiqueta</th>
               <th>Notícias Do Dia</th>
+              <th>Notícias Data + ID</th>
             </tr>
           </thead>
           <tbody>
@@ -67,6 +81,9 @@ const EtiquetasPage = ({ token }) => {
                 <td>{etiqueta.nomeEtiqueta}</td>
                 <td>
                   <Link to={`/noticias/${etiqueta.id}`} className='btn btn-primary'>Ver Notícias</Link>
+                </td>
+                <td>
+                  <Link to={`/noticias/${etiqueta.id}/${formatarDataParaURL(selectedDate)}`} className='btn btn-warning'>Ver Notícias</Link>
                 </td>
               </tr>
             ))}

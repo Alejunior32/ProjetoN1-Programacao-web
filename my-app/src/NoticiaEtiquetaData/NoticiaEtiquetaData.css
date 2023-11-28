@@ -1,11 +1,11 @@
-.noticia-square {
+.noticia-etiqueta-data-square {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     display: inline-block;
+    margin-left: auto;
     margin-top: 5vh;
     margin-bottom: 5vh;
-    margin-left: 20vh;
     border-radius: 10px;
   }

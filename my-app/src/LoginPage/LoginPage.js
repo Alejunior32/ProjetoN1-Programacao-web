@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [token, setToken] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -20,7 +19,6 @@ const LoginPage = () => {
   
       if (response.ok) {
         const data = await response.json();
-        setToken(data.token);
         sessionStorage.setItem('token', data.token);
         navigate('/etiquetas');
       } else {
@@ -30,15 +28,6 @@ const LoginPage = () => {
       console.error('Erro durante a chamada da API:', error);
     }
   };
-  
-  useEffect(() => {
-    const storedToken = sessionStorage.getItem('token');
-   
-    if (storedToken) {
-       setToken(storedToken);
-       console.log('Token recuperado do sessionStorage:', storedToken);
-    }
-   }, []);
 
   return (
     <div className="login-container">

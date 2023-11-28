@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import './NoticiaGeralData.css';
+import { Link, useParams } from 'react-router-dom';
 
-const NoticiaGeralData = ({ token, selectedDate }) => {
+const NoticiaGeralData = ({ token}) => {
   const [noticias, setNoticias] = useState([]);
+  const {selectedDate} = useParams();
 
   useEffect(() => {
     const fetchNoticias = async () => {
@@ -17,7 +19,11 @@ const NoticiaGeralData = ({ token, selectedDate }) => {
 
         if (noticiasResponse.ok) {
           const noticiasData = await noticiasResponse.json();
-          setNoticias(noticiasData.items);
+          if (noticiasData) {
+            setNoticias(noticiasData);
+          } else {
+            console.log('Dados da API estão incompletos:', noticiasData);
+          }
         } else {
           console.error('Erro ao buscar notícias:', noticiasResponse.status);
         }
@@ -34,27 +40,32 @@ const NoticiaGeralData = ({ token, selectedDate }) => {
   return (
     <div className="container mt-4">
       <div className="noticia-square">
+        <div className="d-flex justify-content-between align-items-center">
+          <h2>Notícias da Data Selecionada</h2>
+          <Link to="/etiquetas" className="btn btn-success">
+            Voltar
+          </Link>
+        </div>
         {noticias.length > 0 ? (
           noticias.map((noticia) => (
-            <div key={noticia.id} className="card mb-3">
+            noticia.items.map((item) => (
+            <div key={item.titulo} className="card mb-3">
               <div className="card-body">
-                <h2 className="card-title">{noticia.titulo}</h2>
-                <p className="card-text">{noticia.introducao}</p>
-                <p>Data de Publicação: {noticia.data_publicacao}</p>
-                <p>Editorias: {noticia.editorias}</p>
+                <h2 className="card-title">{item.titulo}</h2>
+                <p className="card-text">{item.introducao}</p>
+                <p>Data de Publicação: {item.data_publicacao}</p>
+                <p>Editorias: {item.editorias}</p>
               </div>
               <hr className="my-0" />
             </div>
+            ))
           ))
         ) : (
           <p className="alert alert-info">Não há notícias na data selecionada!</p>
         )}
-        <Link to="/etiquetas" className='btn btn-success'>
-          Voltar
-        </Link>
       </div>
     </div>
   );
-};
+}
 
 export default NoticiaGeralData;

@@ -1,10 +1,10 @@
- .noticia-square {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    display: inline-block;
-    margin-top: 35vh;
-    margin-left: 45vh;
-    border-radius: 10px;
-  }
+.noticia-etiqueta-square {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  display: inline-block;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-radius: 10px;
+}

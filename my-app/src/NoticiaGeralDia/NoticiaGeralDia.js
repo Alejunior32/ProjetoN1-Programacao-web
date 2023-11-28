@@ -18,7 +18,7 @@ const [noticias, setNoticias] = useState([]);
 
         if (noticiasResponse.ok) {
           const data = await noticiasResponse.json();
-          if (data && data.content) {
+          if (data) {
             setNoticias(data.content);
           } else {
             console.log('Dados da API estão incompletos:', data);
@@ -35,7 +35,7 @@ const [noticias, setNoticias] = useState([]);
   }, [token]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 d-flex justify-content-center align-items-center">
       <div className="noticia-square">
         {noticias && noticias.length > 0 ? (
           noticias.map((noticia) => (
