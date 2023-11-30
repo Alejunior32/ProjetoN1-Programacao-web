@@ -10,7 +10,7 @@ const NovoUsuario = ({ token }) => {
   const handleCreateUsuario = async () => {
     try {
       const response = await fetch('http://localhost:8080/v1/usuarios', {
-        method: '',
+        method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
